@@ -26,21 +26,26 @@ SECRET_KEY = os.environ['DJANGO_CUSTOM_CAR_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','44.196.172.48']
+
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 
 # Application definition
 
 INSTALLED_APPS = [
-		'polls.apps.PollsConfig',
+		'car.apps.CarConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,10 +82,13 @@ WSGI_APPLICATION = 'custom_car.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+				'OPTIONS': {
+					'charset': 'utf8mb4' 
+				},
         'NAME': 'custom_car',
-        'USER': 'root',
+        'USER': os.environ['MYSQL_USER'],
         'PASSWORD': os.environ['MYSQL_PASS'],
-        'HOST': '127.0.0.1',
+        'HOST': os.environ['MYSQL_HOST'],
     }
 }
 
