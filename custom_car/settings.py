@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['DJANGO_CUSTOM_CAR_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','44.196.172.48']
+ALLOWED_HOSTS = ['localhost','18.208.6.223']
 
 CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 

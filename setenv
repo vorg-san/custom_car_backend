@@ -1,0 +1,4 @@
+export DJANGO_CUSTOM_CAR_SECRET_KEY=""
+export MYSQL_USER=""
+export MYSQL_PASS=""
+export MYSQL_HOST=""
